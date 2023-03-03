@@ -1,7 +1,8 @@
 const searchButton = document.getElementById('search-button');
 const searchResults = document.getElementById('search-results');
 
-searchButton.addEventListener('click', () => {
+searchButton.addEventListener('click', function() {
+    console.log('click')
     var searchForm = document.getElementById('search-form').value;
 
     fetch('https://www.cheapshark.com/api/1.0/games?title=' + searchForm)
