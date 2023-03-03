@@ -1,8 +1,19 @@
 
-.body {
-    display: flex;
+body {
+    background-color: aqua;
 }
 
 .h1 {    
     position: center;
+    display: flex;
+}
+
+.section {
+    display: flex;
+}
+
+#banner-img {
+    justify-content: right;
+    position: relative;
+    object-position: right;
 }
