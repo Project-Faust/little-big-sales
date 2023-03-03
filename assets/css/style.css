@@ -17,3 +17,10 @@ body {
     position: relative;
     object-position: right;
 }
+
+.find-deal-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
