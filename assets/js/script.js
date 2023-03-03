@@ -1,7 +1,8 @@
 const searchButton = document.getElementById('search-button');
 const searchResults = document.getElementById('search-results');
-
+console.log('hello')
 searchButton.addEventListener('click', () => {
+    console.log('click')
     var searchForm = document.getElementById('search-form').value;
 
     fetch('https://www.cheapshark.com/api/1.0/games?title=' + searchForm)
@@ -16,9 +17,9 @@ searchButton.addEventListener('click', () => {
         .then(function (data) {
             console.log(data);
             searchResults.innerHTML = '';
-            data.results.forEach(function (result) {
+            data.forEach(function (result) {
                 const listItem = document.createElement('li');
-                listItem.textContent = result.title;
+                listItem.textContent = result.external;
                 searchResults.appendChild(listItem);
             });
         })
