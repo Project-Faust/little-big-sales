@@ -19,7 +19,7 @@ searchButton.addEventListener('click', () => {
             searchResults.innerHTML = '';
             data.forEach(function (result) {
                 const listItem = document.createElement('li');
-                listItem.textContent = result.external;
+                listItem.textContent = '$' + result.cheapest + ' / ' + 'currency' + ':' + result.external;
                 searchResults.appendChild(listItem);
             });
         })
