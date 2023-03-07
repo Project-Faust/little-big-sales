@@ -21,7 +21,7 @@ searchButton.addEventListener('click', () => {
         // if (result.steamAppID) {
           const listItem = document.createElement('li');
           const listDealLink = document.createElement('a');
-          const listImage = document.createElement('i');
+          const listImage = document.createElement('img');
           const lineBreak = document.createElement('br')
           // listImage.src = result.thumb;
           listImage.setAttribute('src', result.thumb);
