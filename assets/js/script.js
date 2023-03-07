@@ -67,3 +67,21 @@ searchButton.addEventListener('click', () => {
 //       alert('Unable to connect to GitHub');
 //     });
 // };
+var currency = document.getElementById('money');
+var moneyValue = currency.value;
+var result = currency.options[currency.selectedIndex].text;
+
+var dealConvert = function () {
+  var apiUrl = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@{apiVersion}/latest//currencies.json';
+  fetch(apiUrl)
+  .then(currency => {
+    return currency.json();
+}).then(displayResults);
+};
+
+    
+    function display(currency) {      
+      let toRate = moneyValue;
+      searchResults / toRate;
+
+    };
