@@ -70,6 +70,22 @@ searchButton.addEventListener('click', () => {
 var currency = document.getElementById('money');
 var moneyValue = currency.value;
 var result = currency.options[currency.selectedIndex].text;
+var resultFrom;
+var resultTo;
+var searchValue;
+
+searchResults.addEventListener('change', (event) => {
+  resultFrom = `${event.target.value}`;
+});
+moneyValue.addEventListener('change', (event) => {
+  resultTo = `${event.target.value}`;
+});
+
+searchResults.addEventListener('input', updateValue);
+
+function updateValue(e) {
+  searchValue = e.target.value;
+}
 
 var dealConvert = function () {
   var apiUrl = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@{apiVersion}/latest//currencies.json';
@@ -82,6 +98,7 @@ var dealConvert = function () {
     
     function display(currency) {      
       let toRate = moneyValue;
+      finalValue.innerHTML = ((toRate / searchResults) * searchValue).toFixed(2);
       searchResults / toRate;
 
     };
