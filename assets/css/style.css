@@ -1,19 +1,33 @@
-
 body {
     background-color: aqua;
 }
 
-.h1 {    
-    position: center;
-    display: flex;
-}
+
 
 .section {
     display: flex;
+
+
 }
 
-#banner-img {
+.banner-img {
     justify-content: right;
     position: relative;
     object-position: right;
+    size-adjust: 75%;
+
+}
+
+.search {
+    justify-content: center;
+
+
+
+    font-size: 15px;
+    line-height: 20px;
+    text-align: right;
+    padding: 30px 20px 5px 0;
+
+
+
 }
