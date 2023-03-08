@@ -6,6 +6,8 @@ This project was a major tackle for us, being the first time we utilized multipl
 
 
 images provided by https://www.fotor.com/features/ai-image-generator/
+currency conversion formula guide by https://www.geeksforgeeks.org/currency-converter-in-javascript/
+
 
 ## Credits
 Philip Ruggiero - https://github.com/PhilRug
