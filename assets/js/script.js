@@ -19,6 +19,7 @@ searchButton.addEventListener('click', () => {
       searchResults.innerHTML = '';
       data.forEach(function (result) {
         // if (result.steamAppID) {
+          convertCurrency();
           const listItem = document.createElement('li');
           const listDealLink = document.createElement('a');
           const listImage = document.createElement('img');
@@ -102,16 +103,19 @@ searchButton.addEventListener('click', () => {
       
 
 //     };
-const fromCurrency = "USD";
+
+function convertCurrency() {
+const fromCurrency = 'usd';
 const toCurrency = document.querySelector('value');
 
 // Define the price you want to convert
 const price = searchResults;
 
 // Make a GET request to the API endpoint to retrieve the latest exchange rates
-fetch(`https://github.com/fawazahmed0/currency-api/tree/1/latest/currencies`);
-  then(response => response.json());
-  then(data => {
+fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + fromCurrency + "/" + toCurrency + ".json")
+  // then(response => response.json());
+  .then(data => {
+    console.log(data)
     // Retrieve the exchange rate for the two currencies
     const fromRate = data.rates[fromCurrency];
     const toRate = data.rates[toCurrency];
@@ -125,3 +129,4 @@ fetch(`https://github.com/fawazahmed0/currency-api/tree/1/latest/currencies`);
   .catch(error => {
     console.error("Error retrieving exchange rates:", error);
   });
+};
