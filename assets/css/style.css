@@ -1,0 +1,29 @@
+
+body {
+    
+    background-image: url(mario-art_1pc1_1_767x.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.h1 {    
+    position: center;
+    display: flex;
+}
+
+.section {
+    display: flex;
+}
+
+#banner-img {
+    justify-content: right;
+    position: relative;
+    object-position: right;
+}
+
+.find-deal-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
