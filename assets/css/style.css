@@ -1,6 +1,9 @@
 
 body {
-    background-color: aqua;
+    
+    background-image: url(mario-art_1pc1_1_767x.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .h1 {    
