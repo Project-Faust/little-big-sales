@@ -1,6 +1,6 @@
 body {
 
-    background-image: url(mario-art_1pc1_1_767x.webp);
+    background-image: url(/assets/images/mario-art_1pc1_1_767x.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -19,9 +19,9 @@ h1 {
 
 div.search {
     font-family: fantasy;
-
     box-sizing: border-box;
 }
+
 div.search input[type=text] {
     padding: 10px;
     font-size: 17px;
@@ -32,7 +32,7 @@ div.search input[type=text] {
 }
 div.search button {
     float: left;
-    width: 20%;
+    width: 80%;
     padding: 10px;
     background: #2196F3;
     color: white;
