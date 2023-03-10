@@ -18,7 +18,12 @@ searchButton.addEventListener('click', () => {
       console.log(data);
       searchResults.innerHTML = '';
       data.forEach(function (result) {
-        var finalConvertedPrice = convertCurrency();
+        var convsersionRateNum = convertCurrency();
+        targetCurrency = document.getElementById('money').value.toUpperCase();
+        console.log('-----');
+        console.log(convsersionRateNum);
+        console.log(result.cheapest);
+        var finalConvertedPrice = convsersionRateNum * result.cheapest;
         // create items
         const listDiv = document.createElement('div');
         const listItem = document.createElement('a');
@@ -27,7 +32,7 @@ searchButton.addEventListener('click', () => {
         // set item content
         listImage.setAttribute('src', result.thumb);
         listItem.href = 'https://www.cheapshark.com/redirect?dealID=' + result.cheapestDealID;
-        listItem.textContent = '$' + result.cheapest + ' / ' + finalConvertedPrice + ': ' + result.external;
+        listItem.textContent = result.cheapest + ' USD / ' + finalConvertedPrice + ' ' + targetCurrency + ': ' + result.external;
         // append items to page
         searchResults.appendChild(listDiv);
         listDiv.appendChild(listImage);
@@ -42,20 +47,18 @@ searchButton.addEventListener('click', () => {
 
 function convertCurrency() {
   const fromCurrency = 'usd';
-  var currencySelector = document.getElementById('money');
-  var toCurrency = currencySelector.value;
-  console.log(toCurrency);
+  var toCurrency = document.getElementById('money').value;
   // Make a GET request to the API endpoint to retrieve the latest exchange rates
   fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + fromCurrency + "/" + toCurrency + ".json")
-  .then(response => response.json())
-  .then(function (data) {
-    var convsersionRate = data[toCurrency];
-    console.log(convsersionRate)
-    return convsersionRate;
-  })
-  .catch(error => {
-    console.error("Error retrieving exchange rates:", error);
-  });
-  var convertedPrice = result.cheapest * convsersionRate;
-  return convertedPrice;
+    .then(response => response.json())
+    .then(function (data) {
+      var convsersionRate = data[toCurrency];
+      console.log(convsersionRate);
+      return convsersionRate;
+    })
+    .catch(error => {
+      console.error("Error retrieving exchange rates:", error);
+    });
+  // var convertedPrice = result.cheapest * convsersionRate;
+  // return convertedPrice;
 };
