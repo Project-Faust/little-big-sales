@@ -12,7 +12,7 @@ mushroom kingdom background provided by https://legendarywallart.net/products/ma
 
 
 ## Credits
-Philip Ruggiero - https://github.com/PhilRug
-Lane Pentecost - https://github.com/Project-Faust
-Blake Edwards - https://github.com/blakeedwards3
-Emmanuel Gomez - https://github.com/mannyak13619
+- Philip Ruggiero - https://github.com/PhilRug
+- Lane Pentecost - https://github.com/Project-Faust
+- Blake Edwards - https://github.com/blakeedwards3
+- Emmanuel Gomez - https://github.com/mannyak13619
