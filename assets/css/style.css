@@ -1,29 +1,69 @@
-
 body {
-    
+
     background-image: url(mario-art_1pc1_1_767x.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.h1 {    
+.topnav {
+    font-family: fantasy;
+}
+h1 {
     position: center;
     display: flex;
+    border-right: 100px;
+    border-left: 100px;
+    border-radius: 100px;
+
+}
+
+div.search {
+    font-family: fantasy;
+
+    box-sizing: border-box;
+}
+div.search input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+div.search button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    /* Prevent double borders */
+    cursor: pointer;
+}
+div.search button:hover {
+    background: #0b7dda;
+}
+
+div.search::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .section {
     display: flex;
 }
 
-#banner-img {
-    justify-content: right;
-    position: relative;
-    object-position: right;
+.banner-img {
+    font-family: fantasy;
+
 }
 
 .find-deal-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
