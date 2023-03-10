@@ -1,47 +1,56 @@
 const searchButton = document.getElementById('search-button');
 const searchResults = document.getElementById('search-results');
-console.log('hello')
-searchButton.addEventListener('click', () => {
-  console.log('click')
-  var searchForm = document.getElementById('search-form').value;
 
+searchButton.addEventListener('click', () => {
+  var searchForm = document.getElementById('search-form').value;
   fetch('https://www.cheapshark.com/api/1.0/games?title=' + searchForm)
     .then(function (response) {
       if (!response.ok) {
         throw response.json;
       };
-
-      console.log(response);
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      // set search form to empty
       searchResults.innerHTML = '';
-      // loop through each object in result of fetch
       data.forEach(function (result) {
-        // create HTML elements for each item
-        const listDiv = document.createElement('div');
-        const listItem = document.createElement('a');
-        const listDealLink = document.createElement('a');
-        const listImage = document.createElement('img');
-        const lineBreak = document.createElement('br')
-        // set content of created items
-        listDiv.setAttribute('class', 'column')
-        listImage.setAttribute('src', result.thumb);
-        listDealLink.textContent = 'Click to see the best deal!'
-        listItem.href = 'https://www.cheapshark.com/redirect?dealID=' + result.cheapestDealID;
-        listItem.textContent = '$' + result.cheapest + ' / ' + 'currency' + ': ' + result.external;
-        // append created items to page
-        searchResults.appendChild(listDiv);
-        listDiv.appendChild(listImage);
-        listDiv.appendChild(listItem);
-        // searchResults.appendChild(listDealLink);
-        searchResults.appendChild(lineBreak);
+        convertCurrency()
+          .then(function (conversionRateNum) {
+            targetCurrency = document.getElementById('money').value.toUpperCase();
+            var finalConvertedPrice = (conversionRateNum * result.cheapest).toFixed(2);
+            // create items
+            const listDiv = document.createElement('div');
+            const listItem = document.createElement('a');
+            const listImage = document.createElement('img');
+            const lineBreak = document.createElement('br');
+            // set item content
+            listImage.setAttribute('src', result.thumb);
+            listItem.href = 'https://www.cheapshark.com/redirect?dealID=' + result.cheapestDealID;
+            listItem.textContent = result.cheapest + ' USD / ' + finalConvertedPrice + ' ' + targetCurrency + ': ' + result.external;
+            // append items to page
+            searchResults.appendChild(listDiv);
+            listDiv.appendChild(listImage);
+            listDiv.appendChild(lineBreak);
+            listDiv.appendChild(listItem);
+          })
       });
     })
-    // catch and log any errors
     .catch(error => {
       console.error(error);
     });
 });
+
+function convertCurrency() {
+  const fromCurrency = 'usd';
+  var conversionRate;
+  var toCurrency = document.getElementById('money').value;
+  // Make a GET request to the API endpoint to retrieve the latest exchange rates
+  return fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/" + fromCurrency + "/" + toCurrency + ".json")
+    .then(response => response.json())
+    .then(function (data) {
+      conversionRate = data[toCurrency];
+      return Promise.resolve(conversionRate);
+    })
+    .catch(error => {
+      console.error("Error retrieving exchange rates:", error);
+    });
+};
