@@ -22,6 +22,7 @@ searchButton.addEventListener('click', () => {
             const listItem = document.createElement('a');
             const listImage = document.createElement('img');
             const lineBreak = document.createElement('br');
+            const divide = document.createElement('hr');
             // set item content
             listImage.setAttribute('src', result.thumb);
             listItem.href = 'https://www.cheapshark.com/redirect?dealID=' + result.cheapestDealID;
@@ -31,6 +32,7 @@ searchButton.addEventListener('click', () => {
             listDiv.appendChild(listImage);
             listDiv.appendChild(lineBreak);
             listDiv.appendChild(listItem);
+            searchResults.appendChild(divide);
           })
       });
     })
