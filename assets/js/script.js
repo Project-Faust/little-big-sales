@@ -1,5 +1,6 @@
 const searchButton = document.getElementById('search-button');
 const searchResults = document.getElementById('search-results');
+const searchForm = document.getElementById('search-form');
 
 searchButton.addEventListener('click', () => {
   var searchForm = document.getElementById('search-form').value;
@@ -39,6 +40,13 @@ searchButton.addEventListener('click', () => {
     .catch(error => {
       console.error(error);
     });
+});
+
+searchForm.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    searchButton.click();
+  }
 });
 
 function convertCurrency() {
