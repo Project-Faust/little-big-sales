@@ -1,0 +1,15 @@
+::-webkit-scrollbar {
+    width: 18px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(211, 211, 211);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgb(228, 0, 15), rgb(0, 0, 0));
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(rgb(228, 0, 15), rgb(0, 0, 0));
+}
