@@ -77,9 +77,9 @@ div.search::after {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(rgb(0, 159, 0), rgb(211, 211, 211));
+    background: linear-gradient(rgb(228, 0, 15), rgb(0, 0, 0));
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(rgb(0, 101, 0), rgb(211, 211, 211));
+    background: linear-gradient(rgb(228, 0, 15), rgb(0, 0, 0));
 }
